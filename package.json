@@ -1,0 +1,55 @@
+{
+  "name": "storybook-addon-edit-stories",
+  "version": "0.9.0",
+  "description": "A storybook addon to add a edit this... link",
+  "keywords": [
+    "addon",
+    "react",
+    "storybook"
+  ],
+  "homepage": "https://github.com/atanasster/storybook-addon-edit-stories/",
+  "bugs": "https://github.com/atanasster/storybook-addon-edit-stories/issues",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/atanasster/storybook-addon-edit-stories.git"
+  },
+  "license": "MIT",
+  "author": "Atanas Stoyanov",
+  "main": "index.js",
+  "types": "index.d.ts",
+  "scripts": {
+    "start": "start-storybook -p 9001",
+    "build": "rollup -c && tsc",
+    "pub": "pushd ./ && npm run build && cd dist && npm publish && popd",
+    "build-storybook": "build-storybook -c .storybook -o docs"
+  },
+  "peerDependencies": {
+    "@storybook/addons": "^>= 5.2.0-beta.43",
+    "@storybook/react": "^>= 5.2.0-beta.43",
+    "react": ">= 16.8.3",
+    "styled-components": ">= 4.3.2"
+  },
+  "devDependencies": {
+    "@storybook/addons": "5.2.0-beta.43",
+    "@storybook/addon-docs": "^5.2.0-beta.40",
+    "@storybook/react": "5.2.0-beta.43",
+    "@types/react": "^16.9.2",
+    "@types/react-dom": "^16.9.0",
+    "@typescript-eslint/eslint-plugin": "^1.13.0",
+    "@typescript-eslint/parser": "^1.13.0",
+    "babel-loader": "^8.0.6",
+    "react": "^16.8.3",
+    "rollup": "^1.19.4",
+    "rollup-plugin-commonjs": "^10.0.2",
+    "rollup-plugin-copy-glob": "^0.3.1",
+    "rollup-plugin-delete": "^1.1.0",
+    "rollup-plugin-node-resolve": "^5.2.0",
+    "rollup-plugin-peer-deps-external": "^2.2.0",
+    "rollup-plugin-typescript2": "^0.22.1",
+    "styled-components": "^4.3.2",
+    "typescript": "^3.5.3"
+  },
+  "dependencies": {
+    "@storybook/design-system": "^0.0.44"
+  }
+}

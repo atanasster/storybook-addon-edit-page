@@ -1,0 +1,35 @@
+<Meta
+  title="Test mdx|Add edit on Doc tab?"
+  parameters={{
+    fileName: 'https://raw.githubusercontent.com/storybookjs/storybook/next/addons/docs/docs/docspage.md' 
+ }}/>
+
+<center>
+  <img src="https://raw.githubusercontent.com/storybookjs/storybook/next/addons/docs/docs/media/docspage-hero.png" width="100%" />
+</center>
+
+# Storybook DocsPage
+
+When you install [Storybook Docs](https://raw.githubusercontent.com/storybookjs/storybook/next/addons/docs/README.md), `DocsPage` is the zero-config default documentation that all stories get out of the box. It aggregates your stories, text descriptions, docgen comments, props tables, and code examples into a single page for each component.
+
+- [Motivation](#motivation)
+- [Component parameter](#component-parameter)
+- [DocsPage slots](#docspage-slots)
+- [Replacing DocsPage](#replacing-docspage)
+- [Story file names](#story-file-names)
+- [More resources](#more-resources)
+
+## Motivation
+
+`DocsPage` is the successor to [`addon-info`](https://github.com/storybookjs/storybook/tree/next/addons/info), which was one of the most popular Storybook addons despite many limitations.
+
+Like `addon-info`, `DocsPage` provides sensible defaults, meaning it adds documentation to your existing Storybook without requiring any additional work on your part.
+
+However, `DocsPage` brings the following improvements:
+
+- It supports all frameworks that Storybook supports, including React, Vue, Angular and [many others](https://raw.githubusercontent.com/storybookjs/storybook/next/addons/docs/README.md#framework-support).
+- It generates better documentation that can be used as a standalone docs site, independently of Storybook.
+- It supports better configuration, so you can capture project specific information with ease.
+- It's built to work with [`MDX`](./mdx.md`) when you need more control of your documentation.
+
+etc.....
