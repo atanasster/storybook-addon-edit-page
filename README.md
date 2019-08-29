@@ -10,6 +10,7 @@ A storybook addon to turn your Storybok site into a CMS allowing the users to su
 ## Installation
 ```sh
 npm i -D storybook-addon-edit-stories
+```
 
 ## Setup
 
