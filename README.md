@@ -47,7 +47,7 @@ In your `addons.js`, define your configuration and pass it in to the `editStorie
 
 
 ```js
-mport { editStories } from 'storybook-addon-edit-stories';
+import { editStories } from 'storybook-addon-edit-stories';
 
 const gitPageResolver = ({ fileName } ) => {
   return fileName;
