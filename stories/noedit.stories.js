@@ -7,16 +7,11 @@ import { Link, Icon } from '@storybook/design-system';
 const onLinkClick = () => console.log('clicked');
 
 export default {
-  title: 'Stories|With edit',
-  component: Link,
-  parameters: {
-    edit: {
-      fileName: 'https://github.com/storybookjs/design-system/blob/master/src/components/Link.js'
-    },  
-  }
+  title: 'Stories|No edit',
+  component: Icon,
 };
 
-export const all = () => (
+export const icons = () => (
   <div>
     <Link href="https://learnstorybook.com">Default</Link>
     <br />

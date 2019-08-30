@@ -2,8 +2,11 @@
 
 A storybook addon to turn your Storybok site into a CMS allowing the users to submit edit PRs for your components and documentation
 
-![Edit this page](./assets/edit-story.jpg)
-
+|||
+| :------------- | :----------: |
+|**Preview** |![Edit on preview](./assets/edit-preview.jpg)|
+|**Docs tab** |![Edit on docs](./assets/edit-docs.jpg)|
+|**mdx file** |![Edit mdx](./assets/edit-mdx.jpg)|
 ## Live demo
 [sample-edit-page](https://atanasster.github.io/storybook-addon-edit-stories/)
 
@@ -14,42 +17,46 @@ npm i -D storybook-addon-edit-stories
 
 ## Setup
 
-You can add the source file name to the stories metadata:
+You can add the source file name to the stories metadata in CSF:
 
-```
+```js
 export default {
-  title: 'Design System|Link',
+  title: 'Stories|With edit',
   component: Link,
   parameters: {
-    fileName: 'https://github.com/storybookjs/design-system/blob/master/src/components/Link.js'
+    edit: {
+      fileName: 'https://github.com/storybookjs/design-system/blob/master/src/components/Link.js'
+    },  
   }
 };
 ```
 
 Or to mdx files: 
-```
+```md
 <Meta
   title="Test mdx|Add edit on Doc tab?"
   parameters={{
-    fileName: 'https://raw.githubusercontent.com/storybookjs/storybook/next/addons/docs/docs/docspage.md' 
+    edit:{ 
+      fileName: 'https://raw.githubusercontent.com/storybookjs/storybook/next/addons/docs/docs/docspage.md' 
+    }  
  }}/>
 
 ```
 ## Usage
-In your config.js, define your configuration and pass it in to the `addDecorator` function
+In your `addons.js`, define your configuration and pass it in to the `editStories` initializer
 
 
-```javascript
-import { addDecorator } from '@storybook/react'; // <- or your storybook framework
-import { withEditStories } from 'storybook-addon-edit-stories';
+```js
+mport { editStories } from '../dist';
 
 const gitPageResolver = ({ fileName } ) => {
   return fileName;
 }
-addDecorator(withEditStories({
+editStories({
   fileNameResolve: gitPageResolver,
   editPageLabel: 'edit this page...',
-}));
+});
+
 ```
 
 ## Options

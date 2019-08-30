@@ -1,13 +1,4 @@
-import { configure, addDecorator } from '@storybook/react';
-import { withEditStories } from '../dist';
-
-const gitPageResolver = ({ fileName } ) => {
-  return fileName;
-}
-addDecorator(withEditStories({
-  fileNameResolve: gitPageResolver,
-  editPageLabel: 'edit this page...',
-}));
+import { configure } from '@storybook/react';
 
 configure(require.context('../stories/', true, /\.stories\.mdx$/), module);
 configure(require.context('../stories/', true, /\.stories\.js$/), module);
