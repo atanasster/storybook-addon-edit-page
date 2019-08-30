@@ -1,6 +1,6 @@
 {
   "name": "storybook-addon-edit-stories",
-  "version": "0.9.0",
+  "version": "0.9.1",
   "description": "A storybook addon to add a edit this... link",
   "keywords": [
     "addon",
