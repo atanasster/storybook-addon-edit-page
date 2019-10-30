@@ -1,9 +1,9 @@
-import { editStories } from '../dist';
+import { editPage } from '../dist';
 
 const gitPageResolver = ({ fileName } ) => {
   return fileName;
 }
-editStories({
+editPage({
   fileNameResolve: gitPageResolver,
   editPageLabel: 'edit this page...',
 });

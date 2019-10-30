@@ -1,6 +1,6 @@
-# storybook-addon-edit-stories
+# Storybook Addon Edit Page
 
-A storybook addon to turn your Storybok site into a CMS allowing the users to submit edit PRs for your components and documentation
+Storybook Edit Page Addon can add 'edit this page' links in [Storybook](https://storybook.js.org).
 
 |||
 | :------------- | :----------: |
@@ -8,14 +8,46 @@ A storybook addon to turn your Storybok site into a CMS allowing the users to su
 |**Docs tab** |![Edit on docs](./assets/edit-docs.jpg)|
 |**mdx file** |![Edit mdx](./assets/edit-mdx.jpg)|
 ## Live demo
-[sample-edit-page](https://atanasster.github.io/storybook-addon-edit-stories/)
+[sample-edit-page](https://atanasster.github.io/storybook-addon-edit-page/)
 
 ## Installation
+
 ```sh
 npm i -D storybook-addon-edit-stories
 ```
 
-## Setup
+## Configuration
+
+Then create a file called `addons.js` in your storybook config.
+
+Add following content to it (the configuration settings are optional):
+
+```js
+import { editPage } from 'storybook-addon-edit-stories';
+
+const gitPageResolver = ({ fileName } ) => {
+  return fileName;
+}
+editPage({
+  fileNameResolve: gitPageResolver,
+  editPageLabel: 'edit this page...',
+  render: ({ filePath, shortName, ...rest }) => (
+    <div>
+      {filePath && (
+        <div>
+          <h3>{shortName}</h3>
+          <a target="_blank" href={filePath}>
+            here
+          </a>
+        </div>
+      )}
+    </div>
+  ),
+});
+
+```
+
+## Usage
 
 You can add the source file name to the stories metadata in CSF:
 
@@ -37,29 +69,20 @@ Or to mdx files:
   title="Test mdx|Add edit on Doc tab?"
   parameters={{
     edit:{ 
-      fileName: 'https://raw.githubusercontent.com/storybookjs/storybook/next/addons/docs/docs/docspage.md' 
+      fileName: 'https://github.com/storybookjs/storybook/blob/next/addons/docs/docs/docspage.md' 
     }  
  }}/>
 
 ```
-## Usage
-In your `addons.js`, define your configuration and pass it in to the `editStories` initializer
-
-
-```js
-import { editStories } from 'storybook-addon-edit-stories';
-
-const gitPageResolver = ({ fileName } ) => {
-  return fileName;
-}
-editStories({
-  fileNameResolve: gitPageResolver,
-  editPageLabel: 'edit this page...',
-});
-
-```
-
 ## Options
 
 **fileNameResolve**: function to resolve the file name, by default returns the supplied fileName<br/>
-**editPageLabel**: label for the Edit this page link - by default `EDIT THIS PAGE`<br/>
+**editPageLabel**: label for the Edit this page link - by default `Edit this page`<br/>
+**render**: function to custom render the `Edit this page` panel <br/>
+```js
+parameters : {
+  filePath: string, //full file path
+  shortName: string, //short name of the story file (component name)
+  parameters: any,  //parameters of the current story
+}
+```
