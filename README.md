@@ -13,7 +13,7 @@ Storybook Edit Page Addon can add 'edit this page' links in [Storybook](https://
 ## Installation
 
 ```sh
-npm i -D storybook-addon-edit-stories
+npm i -D storybook-addon-edit-page
 ```
 
 ## Configuration
@@ -23,7 +23,7 @@ Then create a file called `addons.js` in your storybook config.
 Add following content to it (the configuration settings are optional):
 
 ```js
-import { editPage } from 'storybook-addon-edit-stories';
+import { editPage } from 'storybook-addon-edit-page';
 
 const gitPageResolver = ({ fileName } ) => {
   return fileName;
