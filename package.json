@@ -1,6 +1,6 @@
 {
   "name": "storybook-addon-edit-page",
-  "version": "0.9.3",
+  "version": "0.9.4",
   "description": "A storybook addon to add a `edit this page...` link",
   "keywords": [
     "addon",
@@ -55,8 +55,5 @@
     "rollup-plugin-typescript2": "^0.22.1",
     "styled-components": "^4.3.2",
     "typescript": "^3.5.3"
-  },
-  "dependencies": {
-    "memoizerific": "^1.11.3"
   }
 }
